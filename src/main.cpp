@@ -1,5 +1,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include "EventHandler.hpp"
+
 #include "config.hpp"
 
 /* function declarations */
@@ -23,10 +25,13 @@ void draw(void) {
 }
 
 void run(void) {
+    EventHandler event_handler(&window);
     sf::Clock dt_clock;
 
     while (window.isOpen()) {
         float dt = dt_clock.restart().asSeconds();
+
+        event_handler.update();
 
         draw();
     }
