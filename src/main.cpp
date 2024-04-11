@@ -13,6 +13,7 @@ static void setup(void);
 /* variables */
 static Ball player(100.f, 100.f);
 static sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Mitosis", sf::Style::None);
+static Ball reference_ball(200.f, 200.f);
 
 /* constants */
 static const std::string FILEPATH = "res/";
@@ -22,6 +23,7 @@ void draw(void) {
     window.clear();
     
     window.draw(player);
+    window.draw(reference_ball);
     
     window.display();
 }
@@ -33,8 +35,9 @@ void run(void) {
     while (window.isOpen()) {
         float dt = dt_clock.restart().asSeconds();
 
-        player.update(dt);
         event_handler.update();
+        player.update(dt);
+        reference_ball.update(dt);
 
         draw();
     }

@@ -7,8 +7,8 @@ Ball::Ball(float x, float y) {
     setFillColor(sf::Color::White);
     setPosition(x, y);
 
-    speed_x = 100.f;
-    speed_y = 100.f;
+    speed_x = 0.f;
+    speed_y = 0.f;
 }
 
 void Ball::update(float mod) {
