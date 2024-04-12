@@ -1,22 +1,19 @@
-#include <SFML/Window/Keyboard.hpp>
+#include <cmath>
+#include <SFML/System/Vector2.hpp>
+#include <SFML/Window/Mouse.hpp>
 
 #include "Ball.hpp"
 #include "InputProcessor.hpp"
 
 #include "config.hpp"
 
-InputProcessor::InputProcessor(Ball *p, sf::Window *w) {
+InputProcessor::InputProcessor(Ball *p, sf::WindowBase *w) {
     player = p;
     window = w;
 }
 
-void InputProcessor::update(float mod) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-        player->move(0.f, -BALL_SPEED * mod);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-        player->move(0.f, BALL_SPEED * mod);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
-        player->move(-BALL_SPEED * mod, 0.f);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-        player->move(BALL_SPEED * mod, 0.f);
+void InputProcessor::update(void) {
+    sf::Vector2i mouse = sf::Mouse::getPosition(*window);
+    float rotation = M_PI / 2.f - std::atan2(player->getPosition().x + player->getRadius() / 2.f - mouse.x, player->getPosition().y + player->getRadius() / 2.f - mouse.y);
+    player->set_speed(-BALL_SPEED * cos(rotation), -BALL_SPEED * sin(rotation));
 }
