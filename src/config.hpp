@@ -10,4 +10,7 @@ static const unsigned int SCREEN_HEIGHT = 720;
 /* framerate limit */
 static const unsigned int FPS = 60;
 
+/* gameplay */
+static const float BALL_SPEED = 100.f;
+
 #endif /* CONFIG_HPP */
