@@ -32,7 +32,7 @@ void draw(void) {
 void run(void) {
     EventHandler event_handler(&window);
     sf::Clock dt_clock;
-    InputProcessor input_processor(&player);
+    InputProcessor input_processor(&player, &window);
 
     while (window.isOpen()) {
         float dt = dt_clock.restart().asSeconds();

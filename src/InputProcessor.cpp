@@ -5,8 +5,9 @@
 
 #include "config.hpp"
 
-InputProcessor::InputProcessor(Ball *p) {
+InputProcessor::InputProcessor(Ball *p, sf::Window *w) {
     player = p;
+    window = w;
 }
 
 void InputProcessor::update(float mod) {
