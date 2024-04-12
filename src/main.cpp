@@ -2,6 +2,7 @@
 
 #include "Ball.hpp"
 #include "EventHandler.hpp"
+#include "InputProcessor.hpp"
 
 #include "config.hpp"
 
@@ -31,11 +32,14 @@ void draw(void) {
 void run(void) {
     EventHandler event_handler(&window);
     sf::Clock dt_clock;
+    InputProcessor input_processor(&player);
 
     while (window.isOpen()) {
         float dt = dt_clock.restart().asSeconds();
 
         event_handler.update();
+        input_processor.update(dt);
+
         player.update(dt);
         reference_ball.update(dt);
 
