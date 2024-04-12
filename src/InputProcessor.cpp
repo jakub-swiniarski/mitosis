@@ -9,9 +9,9 @@ InputProcessor::InputProcessor(Ball *p) {
 
 void InputProcessor::update(float mod) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-        player->move(0.f, 100.f * mod);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
         player->move(0.f, -100.f * mod);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+        player->move(0.f, 100.f * mod);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
         player->move(-100.f * mod, 0.f);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
