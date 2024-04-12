@@ -8,6 +8,7 @@ class Ball: public sf::CircleShape {
 
 public:
     Ball(float x, float y);
+    sf::Vector2f get_middle(void);
     void set_speed(float x, float y);
     void update(float mod);
 };
