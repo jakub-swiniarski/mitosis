@@ -11,6 +11,11 @@ Ball::Ball(float x, float y) {
     speed_y = 0.f;
 }
 
+sf::Vector2f Ball::get_middle(void) {
+    sf::Vector2f middle(getPosition().x + getRadius() / 2.f, getPosition().y + getRadius() / 2.f);
+    return middle;
+}
+
 void Ball::set_speed(float x, float y) {
     speed_x = x;
     speed_y = y;
