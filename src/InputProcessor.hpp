@@ -3,16 +3,16 @@
 
 class Ball;
 namespace sf {
-    class Window;
+    class WindowBase;
 }
 
 class InputProcessor {
     Ball *player;
-    sf::Window *window;
+    sf::WindowBase *window;
 
 public:
-    InputProcessor(Ball *p, sf::Window *w);
-    void update(float mod);
+    InputProcessor(Ball *p, sf::WindowBase *w);
+    void update(void);
 };
 
 #endif /* INPUTPROCESSOR_HPP */

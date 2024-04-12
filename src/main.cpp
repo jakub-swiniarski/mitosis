@@ -38,7 +38,7 @@ void run(void) {
         float dt = dt_clock.restart().asSeconds();
 
         event_handler.update();
-        input_processor.update(dt);
+        input_processor.update();
 
         player.update(dt);
         reference_ball.update(dt);
