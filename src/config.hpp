@@ -8,6 +8,11 @@ namespace cfg {
         static constexpr float SPEED = 100.f;
     };
 
+    class Food {
+    public:
+        static constexpr float RADIUS = 10.f;
+    };
+
     class Window {
     public:
         static constexpr unsigned int WIDTH = 1280;

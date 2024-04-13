@@ -59,8 +59,7 @@ void run(void) {
         /* TODO: spawner class and simplify spawning algorithm */
         if (spawn_clock.getElapsedTime().asSeconds() >= 0.2f) {
             spawn_clock.restart();
-            Food new_food(player.getPosition().x, player.getPosition().y);
-            food.push_back(new_food);
+            food.push_back(Food(player.getPosition().x, player.getPosition().y));
         }
 
         draw();
