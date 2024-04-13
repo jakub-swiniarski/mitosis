@@ -15,7 +15,7 @@ static void setup(void);
 /* variables */
 static Ball player(100.f, 100.f);
 static Ball reference_ball(200.f, 200.f);
-static sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Mitosis", sf::Style::None);
+static sf::RenderWindow window(sf::VideoMode(cfg::Window::WIDTH, cfg::Window::HEIGHT), "Mitosis", sf::Style::None);
 
 /* constants */
 static const std::string FILEPATH = "res/";
@@ -54,7 +54,7 @@ void run(void) {
 }
 
 void setup(void) {
-    window.setFramerateLimit(FPS);
+    window.setFramerateLimit(cfg::Window::FPS);
 }
 
 int main(void) {
