@@ -4,6 +4,7 @@
 namespace cfg {
     class Ball {
     public:
+        static constexpr float RADIUS = 25.f;
         static constexpr float SPEED = 100.f;
     };
 

@@ -2,8 +2,10 @@
 
 #include "Ball.hpp"
 
+#include "config.hpp"
+
 Ball::Ball(float x, float y) {
-    setRadius(20.f); /* TODO: avoid magic numbers, radius will change */
+    setRadius(cfg::Ball::RADIUS);
     setFillColor(sf::Color::White);
     setPosition(x, y);
 
