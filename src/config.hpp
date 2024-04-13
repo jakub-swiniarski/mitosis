@@ -11,6 +11,7 @@ namespace cfg {
     class Food {
     public:
         static constexpr float RADIUS = 10.f;
+        static constexpr float SPAWN_COOLDOWN = 0.5f; /* in seconds */
     };
 
     class Window {

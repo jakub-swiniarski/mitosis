@@ -57,7 +57,7 @@ void run(void) {
         window.setView(camera);
 
         /* TODO: spawner class and simplify spawning algorithm */
-        if (spawn_clock.getElapsedTime().asSeconds() >= 0.2f) {
+        if (spawn_clock.getElapsedTime().asSeconds() >= cfg::Food::SPAWN_COOLDOWN) {
             spawn_clock.restart();
             food.push_back(Food(player.getPosition().x, player.getPosition().y));
         }
