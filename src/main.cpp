@@ -55,6 +55,7 @@ void run(void) {
         camera.setCenter(player.get_middle());
         window.setView(camera);
 
+        /* TODO: slow this down, spawner class and simplify spawning algorithm */
         Food new_food(player.getPosition().x, player.getPosition().y);
         food.push_back(new_food);
 
