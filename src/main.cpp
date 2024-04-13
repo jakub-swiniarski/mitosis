@@ -16,8 +16,7 @@ static void setup(void);
 
 /* variables */
 static std::list<Food> food;
-static Ball player(100.f, 100.f);
-static Ball reference_ball(200.f, 200.f);
+static Ball player(0.f, 0.f);
 static sf::RenderWindow window(sf::VideoMode(cfg::Window::WIDTH, cfg::Window::HEIGHT), "Mitosis", sf::Style::None);
 
 /* constants */
@@ -28,9 +27,8 @@ void draw(void) {
     window.clear();
     
     window.draw(player);
-    window.draw(reference_ball);
 
-    for (auto const &i: food)
+    for (auto const &i: food) /* TODO: check if visible */
         window.draw(i);
     
     window.display();
@@ -50,7 +48,6 @@ void run(void) {
         input_processor.update();
 
         player.update(dt);
-        reference_ball.update(dt);
 
         /* TODO: spawner class and simplify spawning algorithm */
         if (spawn_clock.getElapsedTime().asSeconds() >= cfg::Food::SPAWN_COOLDOWN) {
@@ -59,7 +56,7 @@ void run(void) {
         }
 
         for (std::list<Food>::iterator i = food.begin(); i != food.end(); i++) {
-            if (i->getGlobalBounds().intersects(player.getGlobalBounds())) {
+            if (i->getGlobalBounds().intersects(player.getGlobalBounds())) { /* TODO: 1st check if visible */
                 player.setRadius(player.getRadius() + i->getRadius() / 10.f);
                 player.move(-i->getRadius() / 10.f, -i->getRadius() / 10.f);
                 food.erase(i);
