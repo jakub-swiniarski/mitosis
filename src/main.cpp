@@ -30,7 +30,7 @@ void draw(void) {
     window.draw(player);
     window.draw(reference_ball);
 
-    for (auto const& i : food)
+    for (auto const &i: food)
         window.draw(i);
     
     window.display();
