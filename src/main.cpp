@@ -1,3 +1,4 @@
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
 #include <list>
@@ -15,6 +16,7 @@ static void run(void);
 static void setup(void);
 
 /* variables */
+static sf::View camera;
 static std::list<Food> food;
 static Ball player(0.f, 0.f);
 static sf::RenderWindow window(sf::VideoMode(cfg::Window::WIDTH, cfg::Window::HEIGHT), "Mitosis", sf::Style::None);
@@ -24,17 +26,24 @@ static const std::string FILEPATH = "res/";
 
 /* function implementations */
 void draw(void) {
+    sf::FloatRect camera_rect(
+        camera.getCenter().x - camera.getSize().x / 2.f,
+        camera.getCenter().y - camera.getSize().y / 2.f,
+        camera.getSize().x,
+        camera.getSize().y
+    );
+    
     window.clear();
     
     for (auto const &i : food) /* TODO: check if visible */
-        window.draw(i);
+        if (camera_rect.intersects(i.getGlobalBounds()))
+            window.draw(i);
     window.draw(player);
     
     window.display();
 }
 
 void run(void) {
-    sf::View camera;
     sf::Clock dt_clock;
     EventHandler event_handler(&window);
     InputProcessor input_processor(&player, &window);
