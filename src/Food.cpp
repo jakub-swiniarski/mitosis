@@ -13,7 +13,7 @@ Food::Food(float player_x, float player_y) {
     float rotation = rand(rng) * M_PI / 180.f;
     float distance = std::sqrt(std::pow(0.5 * cfg::Window::WIDTH, 2) + std::pow(0.5 * cfg::Window::HEIGHT, 2));
 
-    setRadius(10.f);
+    setRadius(cfg::Food::RADIUS);
     setFillColor(sf::Color::Blue);
     setPosition(player_x + distance * cos(rotation), player_y + distance * sin(rotation)); 
 }
