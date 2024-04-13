@@ -14,7 +14,7 @@ Ball::Ball(float x, float y) {
 }
 
 sf::Vector2f Ball::get_middle(void) {
-    sf::Vector2f middle(getPosition().x + getRadius() / 2.f, getPosition().y + getRadius() / 2.f);
+    sf::Vector2f middle(getPosition().x + getRadius(), getPosition().y + getRadius());
     return middle;
 }
 

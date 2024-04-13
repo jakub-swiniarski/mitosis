@@ -52,10 +52,6 @@ void run(void) {
         player.update(dt);
         reference_ball.update(dt);
 
-        camera = window.getView();
-        camera.setCenter(player.get_middle());
-        window.setView(camera);
-
         /* TODO: spawner class and simplify spawning algorithm */
         if (spawn_clock.getElapsedTime().asSeconds() >= cfg::Food::SPAWN_COOLDOWN) {
             spawn_clock.restart();
@@ -70,6 +66,10 @@ void run(void) {
                 break;
             }
         }
+
+        camera = window.getView();
+        camera.setCenter(player.get_middle());
+        window.setView(camera);
 
         draw();
     }
