@@ -41,6 +41,7 @@ void run(void) {
     sf::Clock dt_clock;
     EventHandler event_handler(&window);
     InputProcessor input_processor(&player, &window);
+    sf::Clock spawn_clock;
 
     while (window.isOpen()) {
         float dt = dt_clock.restart().asSeconds();
@@ -55,9 +56,12 @@ void run(void) {
         camera.setCenter(player.get_middle());
         window.setView(camera);
 
-        /* TODO: slow this down, spawner class and simplify spawning algorithm */
-        Food new_food(player.getPosition().x, player.getPosition().y);
-        food.push_back(new_food);
+        /* TODO: spawner class and simplify spawning algorithm */
+        if (spawn_clock.getElapsedTime().asSeconds() >= 0.2f) {
+            spawn_clock.restart();
+            Food new_food(player.getPosition().x, player.getPosition().y);
+            food.push_back(new_food);
+        }
 
         draw();
     }
