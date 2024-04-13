@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics/CircleShape.hpp>
 
-class Food: public sf::CircleShape {
+class Food : public sf::CircleShape {
 public:
     Food(float player_x, float player_y);
 };
