@@ -1,4 +1,5 @@
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/View.hpp>
 
 #include "Ball.hpp"
 #include "EventHandler.hpp"
@@ -13,8 +14,8 @@ static void setup(void);
 
 /* variables */
 static Ball player(100.f, 100.f);
-static sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Mitosis", sf::Style::None);
 static Ball reference_ball(200.f, 200.f);
+static sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Mitosis", sf::Style::None);
 
 /* constants */
 static const std::string FILEPATH = "res/";
@@ -30,8 +31,9 @@ void draw(void) {
 }
 
 void run(void) {
-    EventHandler event_handler(&window);
+    sf::View camera;
     sf::Clock dt_clock;
+    EventHandler event_handler(&window);
     InputProcessor input_processor(&player, &window);
 
     while (window.isOpen()) {
@@ -42,6 +44,10 @@ void run(void) {
 
         player.update(dt);
         reference_ball.update(dt);
+
+        camera = window.getView();
+        camera.setCenter(player.get_middle());
+        window.setView(camera);
 
         draw();
     }
