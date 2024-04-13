@@ -1,8 +1,10 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
+#include <list>
 
 #include "Ball.hpp"
 #include "EventHandler.hpp"
+#include "Food.hpp"
 #include "InputProcessor.hpp"
 
 #include "config.hpp"
@@ -13,6 +15,7 @@ static void run(void);
 static void setup(void);
 
 /* variables */
+static std::list<Food> food;
 static Ball player(100.f, 100.f);
 static Ball reference_ball(200.f, 200.f);
 static sf::RenderWindow window(sf::VideoMode(cfg::Window::WIDTH, cfg::Window::HEIGHT), "Mitosis", sf::Style::None);
@@ -26,6 +29,9 @@ void draw(void) {
     
     window.draw(player);
     window.draw(reference_ball);
+
+    for (auto const& i : food)
+        window.draw(i);
     
     window.display();
 }
@@ -48,6 +54,9 @@ void run(void) {
         camera = window.getView();
         camera.setCenter(player.get_middle());
         window.setView(camera);
+
+        Food new_food(player.getPosition().x, player.getPosition().y);
+        food.push_back(new_food);
 
         draw();
     }
