@@ -5,7 +5,7 @@
 #include "config.hpp"
 
 Ball::Ball(float x, float y) {
-    setRadius(cfg::Ball::RADIUS);
+    setRadius(cfg::ball::RADIUS);
     setFillColor(sf::Color::White);
     setPosition(x, y);
 
