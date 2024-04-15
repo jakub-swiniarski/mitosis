@@ -35,7 +35,7 @@ void draw(void) {
     
     window.clear();
     
-    for (auto const &i : food) /* TODO: check if visible */
+    for (auto const &i : food)
         if (camera_rect.intersects(i.getGlobalBounds()))
             window.draw(i);
     window.draw(player);
