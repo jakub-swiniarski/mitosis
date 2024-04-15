@@ -18,6 +18,11 @@ sf::Vector2f Ball::get_middle(void) {
     return middle;
 }
 
+void Ball::grow(float radius) {
+    setRadius(getRadius() + radius / 10.f);
+    move(-radius / 10.f, -radius / 10.f);
+}
+
 void Ball::set_speed(float x, float y) {
     speed_x = x;
     speed_y = y;

@@ -65,8 +65,7 @@ void run(void) {
 
         for (std::list<Food>::iterator i = food.begin(); i != food.end(); i++) {
             if (i->getGlobalBounds().intersects(player.getGlobalBounds())) {
-                player.setRadius(player.getRadius() + i->getRadius() / 10.f);
-                player.move(-i->getRadius() / 10.f, -i->getRadius() / 10.f);
+                player.grow(i->getRadius());
                 food.erase(i);
                 break;
             }
