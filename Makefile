@@ -3,7 +3,7 @@ HDR = $(wildcard src/*.hpp)
 OBJ = $(patsubst src/%.cpp, %.o, $(SRC))
 
 mitosis: $(OBJ)
-	g++ -o $@ $(OBJ) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+	g++ -o $@ $(OBJ) -lsfml-graphics -lsfml-window -lsfml-system
 
 $(OBJ): $(SRC) $(HDR)
 	g++ -c $(SRC) -O2
