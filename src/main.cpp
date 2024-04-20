@@ -65,7 +65,7 @@ void run(void) {
 
         auto prev = food.before_begin();
         for (auto i = food.before_begin(); i != food.end(); i++) {
-            if (i->getGlobalBounds().intersects(player.getGlobalBounds())) {
+            if (i->get_distance(player.getPosition().x + player.getRadius(), player.getPosition().y + player.getRadius()) <= i->getRadius() + player.getRadius()) {
                 player.grow(i->getRadius());
                 food.erase_after(prev);
                 break;
