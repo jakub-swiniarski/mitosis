@@ -2,6 +2,12 @@
 #define CONFIG_HPP
 
 namespace cfg {
+    namespace window {
+        static constexpr unsigned int width = 1280;
+        static constexpr unsigned int height = 720;
+        static constexpr unsigned int fps = 60;
+    };
+
     namespace ball {
         static constexpr float radius = 25.f;
         static constexpr float speed = 100.f;
@@ -10,12 +16,6 @@ namespace cfg {
     namespace food {
         static constexpr float radius = 10.f;
         static constexpr float spawn_cooldown = 0.5f; /* in seconds */
-    };
-
-    namespace window {
-        static constexpr unsigned int width = 1280;
-        static constexpr unsigned int height = 720;
-        static constexpr unsigned int fps = 60;
     };
 }
 
