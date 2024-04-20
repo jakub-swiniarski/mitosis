@@ -3,19 +3,19 @@
 
 namespace cfg {
     namespace ball {
-        static constexpr float RADIUS = 25.f;
-        static constexpr float SPEED = 100.f;
+        static constexpr float radius = 25.f;
+        static constexpr float speed = 100.f;
     };
 
     namespace food {
-        static constexpr float RADIUS = 10.f;
-        static constexpr float SPAWN_COOLDOWN = 0.5f; /* in seconds */
+        static constexpr float radius = 10.f;
+        static constexpr float spawn_cooldown = 0.5f; /* in seconds */
     };
 
     namespace window {
-        static constexpr unsigned int WIDTH = 1280;
-        static constexpr unsigned int HEIGHT = 720;
-        static constexpr unsigned int FPS = 60;
+        static constexpr unsigned int width = 1280;
+        static constexpr unsigned int height = 720;
+        static constexpr unsigned int fps = 60;
     };
 }
 

@@ -19,10 +19,10 @@ static void setup(void);
 static sf::View camera;
 static std::list<Food> food;
 static Ball player(0.f, 0.f);
-static sf::RenderWindow window(sf::VideoMode(cfg::window::WIDTH, cfg::window::HEIGHT), "Mitosis", sf::Style::None);
+static sf::RenderWindow window(sf::VideoMode(cfg::window::width, cfg::window::height), "Mitosis", sf::Style::None);
 
 /* constants */
-static const std::string FILEPATH = "res/";
+static const std::string filepath = "res/";
 
 /* function implementations */
 void draw(void) {
@@ -58,7 +58,7 @@ void run(void) {
         player.update(dt);
 
         /* TODO: spawner class and simplify spawning algorithm */
-        if (spawn_clock.getElapsedTime().asSeconds() >= cfg::food::SPAWN_COOLDOWN) {
+        if (spawn_clock.getElapsedTime().asSeconds() >= cfg::food::spawn_cooldown) {
             spawn_clock.restart();
             food.push_back(Food(player.getPosition().x, player.getPosition().y));
         }
@@ -80,7 +80,7 @@ void run(void) {
 }
 
 void setup(void) {
-    window.setFramerateLimit(cfg::window::FPS);
+    window.setFramerateLimit(cfg::window::fps);
 }
 
 int main(void) {
