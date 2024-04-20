@@ -1,7 +1,7 @@
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
-#include <list>
+#include <forward_list>
 
 #include "Ball.hpp"
 #include "EventHandler.hpp"
@@ -17,7 +17,7 @@ static void setup(void);
 
 /* variables */
 static sf::View camera;
-static std::list<Food> food;
+static std::forward_list<Food> food;
 static Ball player(0.f, 0.f);
 static sf::RenderWindow window(sf::VideoMode(cfg::window::width, cfg::window::height), "Mitosis", sf::Style::None);
 
@@ -60,15 +60,17 @@ void run(void) {
         /* TODO: spawner class and simplify spawning algorithm */
         if (spawn_clock.getElapsedTime().asSeconds() >= cfg::food::spawn_cooldown) {
             spawn_clock.restart();
-            food.push_back(Food(player.getPosition().x, player.getPosition().y));
+            food.push_front(Food(player.getPosition().x, player.getPosition().y));
         }
 
-        for (std::list<Food>::iterator i = food.begin(); i != food.end(); i++) {
+        auto prev = food.before_begin();
+        for (auto i = food.before_begin(); i != food.end(); i++) {
             if (i->getGlobalBounds().intersects(player.getGlobalBounds())) {
                 player.grow(i->getRadius());
-                food.erase(i);
+                food.erase_after(prev);
                 break;
             }
+            prev = i;
         }
 
         camera = window.getView();
