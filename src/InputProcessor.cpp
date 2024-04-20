@@ -13,7 +13,7 @@ InputProcessor::InputProcessor(Ball *p, sf::WindowBase *w) {
     window = w;
 }
 
-void InputProcessor::update(void) {
+void InputProcessor::update(void) const {
     sf::Vector2i mouse = sf::Mouse::getPosition(*window);
     float rotation = M_PI / 2.f - std::atan2(window->getSize().x / 2.f - mouse.x, window->getSize().y / 2.f - mouse.y);
     player->set_speed(-cfg::ball::SPEED * cos(rotation), -cfg::ball::SPEED * sin(rotation));

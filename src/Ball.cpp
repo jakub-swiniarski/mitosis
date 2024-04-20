@@ -13,7 +13,7 @@ Ball::Ball(float x, float y) {
     speed_y = 0.f;
 }
 
-sf::Vector2f Ball::get_middle(void) {
+sf::Vector2f Ball::get_middle(void) const {
     sf::Vector2f middle(getPosition().x + getRadius(), getPosition().y + getRadius());
     return middle;
 }
