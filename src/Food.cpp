@@ -1,5 +1,6 @@
 #include <SFML/Graphics/Color.hpp>
 #include <cmath>
+#include <math.h>
 #include <random>
 
 #include "Food.hpp"
@@ -17,4 +18,11 @@ Food::Food(float player_x, float player_y) {
     setRadius(cfg::food::radius);
     setFillColor(sf::Color(rand_rgb(rng), rand_rgb(rng), rand_rgb(rng)));
     setPosition(player_x + distance * cos(rotation), player_y + distance * sin(rotation)); 
+}
+
+float Food::get_distance(float x, float y) const {
+    return sqrt(
+        pow(getPosition().x + getRadius() - x, 2)
+        + pow(getPosition().y + getRadius() - y, 2)
+    );
 }
