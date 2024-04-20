@@ -12,7 +12,7 @@ class InputProcessor {
 
 public:
     InputProcessor(Ball *p, sf::WindowBase *w);
-    void update(void);
+    void update(void) const;
 };
 
 #endif /* INPUTPROCESSOR_HPP */
