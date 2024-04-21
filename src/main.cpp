@@ -2,7 +2,7 @@
 #include <SFML/Graphics/View.hpp>
 #include <forward_list>
 
-#include "Ball.hpp"
+#include "AIBall.hpp"
 #include "EventHandler.hpp"
 #include "Food.hpp"
 #include "InputProcessor.hpp"
@@ -16,6 +16,7 @@ static void setup(void);
 
 /* variables */
 static sf::View camera;
+static AIBall enemy(50.f, 50.f);
 static std::forward_list<Food> food;
 static Ball player(0.f, 0.f);
 static sf::RenderWindow window(sf::VideoMode(cfg::window::width, cfg::window::height), "Mitosis", sf::Style::None);
@@ -37,6 +38,7 @@ void draw(void) {
     for (const auto &i : food)
         if (camera_rect.intersects(i.getGlobalBounds()))
             window.draw(i);
+    window.draw(enemy);
     window.draw(player);
     
     window.display();
@@ -54,6 +56,7 @@ void run(void) {
         event_handler.update();
         input_processor.update();
 
+        enemy.update(dt);
         player.update(dt);
 
         /* TODO: spawner class and simplify spawning algorithm */
