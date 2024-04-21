@@ -1,0 +1,17 @@
+#include <random>
+
+#include "AIBall.hpp"
+
+#include "config.hpp"
+
+void AIBall::update(float mod) {
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<std::mt19937::result_type> rand_rotation(0, 360);
+    float rotation = rand_rotation(rng) * M_PI / 180.f;
+    
+    speed_x = cfg::ball::speed * cos(rotation);
+    speed_y = cfg::ball::speed * sin(rotation);
+
+    Ball::update(mod);
+}
