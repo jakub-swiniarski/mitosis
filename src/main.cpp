@@ -38,7 +38,8 @@ void draw(void) {
     for (const auto &i : food)
         if (camera_rect.intersects(i.getGlobalBounds()))
             window.draw(i);
-    window.draw(enemy);
+    if (camera_rect.intersects(enemy.getGlobalBounds()))
+        window.draw(enemy);
     window.draw(player);
     
     window.display();
