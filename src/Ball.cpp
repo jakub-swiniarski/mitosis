@@ -1,5 +1,3 @@
-#include <SFML/Graphics/Color.hpp>
-
 #include "Ball.hpp"
 
 #include "config.hpp"

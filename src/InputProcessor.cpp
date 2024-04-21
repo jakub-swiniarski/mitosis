@@ -1,5 +1,4 @@
 #include <cmath>
-#include <SFML/System/Vector2.hpp>
 #include <SFML/Window/Mouse.hpp>
 #include <SFML/Window/WindowBase.hpp>
 

@@ -2,7 +2,6 @@
 #define FOOD_HPP
 
 #include <SFML/Graphics/CircleShape.hpp>
-#include <SFML/System/Vector2.hpp>
 
 class Food : public sf::CircleShape {
 public:

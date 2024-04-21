@@ -1,6 +1,5 @@
 #include <SFML/Graphics/Color.hpp>
 #include <cmath>
-#include <math.h>
 #include <random>
 
 #include "Food.hpp"
