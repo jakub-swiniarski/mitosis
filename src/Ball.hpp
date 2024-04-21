@@ -4,6 +4,7 @@
 #include <SFML/Graphics/CircleShape.hpp>
 
 class Ball : public sf::CircleShape {
+protected:
     float speed_x, speed_y;
 
 public:
