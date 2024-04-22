@@ -16,9 +16,9 @@ static void setup(void);
 
 /* variables */
 static sf::View camera;
-static AICell enemy(50.f, 50.f);
+static AICell enemy(sf::Vector2f(50.f, 50.f));
 static std::forward_list<Food> food;
-static Cell player(0.f, 0.f);
+static Cell player(sf::Vector2f(0.f, 0.f));
 static sf::RenderWindow window(sf::VideoMode(cfg::window::width, cfg::window::height), "Mitosis", sf::Style::None);
 
 /* constants */
@@ -63,7 +63,7 @@ void run(void) {
         /* TODO: spawner class and simplify spawning algorithm */
         if (spawn_clock.getElapsedTime().asSeconds() >= cfg::food::spawn_cooldown) {
             spawn_clock.restart();
-            food.push_front(Food(player.getPosition().x, player.getPosition().y));
+            food.push_front(Food(player.getPosition()));
         }
 
         auto prev = food.before_begin();
