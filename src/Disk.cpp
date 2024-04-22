@@ -9,9 +9,9 @@ sf::Vector2f Disk::get_middle(void) const {
     );
 }
 
-float Disk::get_distance(float x, float y) const {
+float Disk::get_distance(sf::Vector2f v) const {
     return sqrt(
-        pow(getPosition().x + getRadius() - x, 2)
-        + pow(getPosition().y + getRadius() - y, 2)
+        pow(getPosition().x + getRadius() - v.x, 2)
+        + pow(getPosition().y + getRadius() - v.y, 2)
     );
 }
