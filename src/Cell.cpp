@@ -11,11 +11,6 @@ Cell::Cell(float x, float y) {
     speed_y = 0.f;
 }
 
-sf::Vector2f Cell::get_middle(void) const {
-    sf::Vector2f middle(getPosition().x + getRadius(), getPosition().y + getRadius());
-    return middle;
-}
-
 void Cell::grow(float radius) {
     setRadius(getRadius() + radius / 10.f);
     move(-radius / 10.f, -radius / 10.f);
