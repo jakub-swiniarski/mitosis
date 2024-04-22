@@ -3,7 +3,7 @@
 #include "config.hpp"
 
 Cell::Cell(float x, float y) {
-    setRadius(cfg::ball::radius);
+    setRadius(cfg::cell::radius);
     setFillColor(sf::Color::White);
     setPosition(x, y);
 

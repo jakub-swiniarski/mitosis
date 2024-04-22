@@ -8,7 +8,7 @@ namespace cfg {
         static constexpr unsigned int fps = 60;
     };
 
-    namespace ball {
+    namespace cell {
         static constexpr float radius = 25.f;
         static constexpr float speed = 100.f;
     };
