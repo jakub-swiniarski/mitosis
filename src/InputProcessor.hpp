@@ -1,17 +1,17 @@
 #ifndef INPUTPROCESSOR_HPP
 #define INPUTPROCESSOR_HPP
 
-class Ball;
+class Cell;
 namespace sf {
     class WindowBase;
 }
 
 class InputProcessor {
-    Ball *player;
+    Cell *player;
     sf::WindowBase *window;
 
 public:
-    InputProcessor(Ball *p, sf::WindowBase *w);
+    InputProcessor(Cell *p, sf::WindowBase *w);
     void update(void) const;
 };
 
