@@ -2,12 +2,12 @@
 #include <SFML/Window/Mouse.hpp>
 #include <SFML/Window/WindowBase.hpp>
 
-#include "Ball.hpp"
+#include "Cell.hpp"
 #include "InputProcessor.hpp"
 
 #include "config.hpp"
 
-InputProcessor::InputProcessor(Ball *p, sf::WindowBase *w) {
+InputProcessor::InputProcessor(Cell *p, sf::WindowBase *w) {
     player = p;
     window = w;
 }
