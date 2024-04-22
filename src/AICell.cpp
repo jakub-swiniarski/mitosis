@@ -13,8 +13,8 @@ void AICell::update(float mod) {
         std::uniform_int_distribution<std::mt19937::result_type> rand_rotation(0, 360);
         float rotation = rand_rotation(rng) * M_PI / 180.f;
         
-        speed_x = cfg::ball::speed * cos(rotation);
-        speed_y = cfg::ball::speed * sin(rotation);
+        speed_x = cfg::cell::speed * cos(rotation);
+        speed_y = cfg::cell::speed * sin(rotation);
     }
 
     Cell::update(mod);
