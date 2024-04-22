@@ -68,7 +68,7 @@ void run(void) {
 
         auto prev = food.before_begin();
         for (auto i = food.before_begin(); i != food.end(); i++) {
-            if (i->get_distance(player.get_middle().x, player.get_middle().y) <= i->getRadius() + player.getRadius()) { /* TODO use get_middle method */
+            if (i->get_distance(player.get_middle().x, player.get_middle().y) <= i->getRadius() + player.getRadius()) {
                 player.grow(i->getRadius());
                 food.erase_after(prev);
                 break;
