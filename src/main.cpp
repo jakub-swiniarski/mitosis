@@ -68,11 +68,11 @@ void run(void) {
 
         auto prev = food.before_begin();
         for (auto i = food.before_begin(); i != food.end(); i++) {
-            if (i->get_distance(player.get_middle()) <= i->getRadius() + player.getRadius()) {
+            if (i->collision(&player)) {
                 player.grow(i->getRadius());
                 food.erase_after(prev);
                 break;
-            } else if (i->get_distance(enemy.get_middle()) <= i->getRadius() + enemy.getRadius()) {
+            } else if (i->collision(&enemy)) {
                 enemy.grow(i->getRadius());
                 food.erase_after(prev);
                 break;
