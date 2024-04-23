@@ -2,6 +2,12 @@
 
 #include "Disk.hpp"
 
+bool Disk::collision(const Disk *d) const {
+    if (get_distance(d->get_middle()) <= getRadius() + d->getRadius()) 
+        return 1;
+    return 0;
+}
+
 sf::Vector2f Disk::get_middle(void) const {
     return sf::Vector2f(
         getPosition().x + getRadius(),
