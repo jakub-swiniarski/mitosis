@@ -2,13 +2,15 @@ SRC = $(wildcard src/*.cpp)
 HDR = $(wildcard src/*.hpp)
 OBJ = $(patsubst src/%.cpp, %.o, $(SRC))
 
-mitosis: $(OBJ)
-	g++ -o $@ $(OBJ) -lsfml-graphics -lsfml-window -lsfml-system
+all: mitosis
+
+%.o: src/%.cpp
+	g++ -c -O2 $<
 
 $(OBJ): $(SRC) $(HDR)
-	g++ -c $(SRC) -O2
 
-.PHONY: clean run install uninstall
+mitosis: $(OBJ)
+	g++ -o $@ $(OBJ) -lsfml-graphics -lsfml-window -lsfml-system
 
 clean:
 	rm *.o mitosis
@@ -24,3 +26,5 @@ install: mitosis res
 uninstall:
 	rm /usr/local/bin/mitosis
 	rm -rf /usr/local/share/mitosis
+
+.PHONY: all clean run install uninstall
