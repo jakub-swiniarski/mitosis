@@ -16,15 +16,15 @@ run: all
 	./mitosis
 
 clean:
-	rm *.o mitosis
+	rm -f *.o mitosis
 
 install: all
 	mkdir -p /usr/local/share/mitosis/
-	cp mitosis /usr/local/bin/
-	cp res/* /usr/local/share/mitosis/
+	cp -f mitosis /usr/local/bin/
+	cp -f res/* /usr/local/share/mitosis/
 
 uninstall:
-	rm /usr/local/bin/mitosis
+	rm -f /usr/local/bin/mitosis
 	rm -rf /usr/local/share/mitosis
 
 .PHONY: all run clean install uninstall
