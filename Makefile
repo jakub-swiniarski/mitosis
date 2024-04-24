@@ -12,11 +12,11 @@ $(OBJ): $(HDR)
 mitosis: $(OBJ)
 	g++ -o $@ $(OBJ) -lsfml-graphics -lsfml-window -lsfml-system
 
-clean:
-	rm *.o mitosis
-
 run: all
 	./mitosis
+
+clean:
+	rm *.o mitosis
 
 install: all
 	mkdir -p /usr/local/share/mitosis/
@@ -27,4 +27,4 @@ uninstall:
 	rm /usr/local/bin/mitosis
 	rm -rf /usr/local/share/mitosis
 
-.PHONY: all clean run install uninstall
+.PHONY: all run clean install uninstall
