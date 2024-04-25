@@ -13,7 +13,7 @@ CollisionHandler::CollisionHandler(Cell *e, Cell *p, std::forward_list<Food> *f)
 void CollisionHandler::update(void) {
     auto prev = food->before_begin();
     for (auto i = food->before_begin(); i != food->end(); i++) {
-        if (i->collision(player)) {
+        if (i->collision(player)) { /* TODO: don't repeat the same code, enemy and player are both disks */
             player->grow(i->getRadius());
             food->erase_after(prev);
             break;
