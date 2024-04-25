@@ -3,6 +3,7 @@
 #include <forward_list>
 
 #include "AICell.hpp"
+#include "CollisionHandler.hpp"
 #include "EventHandler.hpp"
 #include "Food.hpp"
 #include "InputProcessor.hpp"
@@ -46,6 +47,7 @@ void draw(void) {
 }
 
 void run(void) {
+    CollisionHandler collision_handler(&enemy, &player, &food);
     sf::Clock dt_clock;
     EventHandler event_handler(&window);
     InputProcessor input_processor(&player, &window);
@@ -54,6 +56,7 @@ void run(void) {
     while (window.isOpen()) {
         float dt = dt_clock.restart().asSeconds();
 
+        collision_handler.update();
         event_handler.update();
         input_processor.update();
 
@@ -66,19 +69,6 @@ void run(void) {
             food.push_front(Food(player.getPosition()));
         }
 
-        auto prev = food.before_begin();
-        for (auto i = food.before_begin(); i != food.end(); i++) {
-            if (i->collision(&player)) {
-                player.grow(i->getRadius());
-                food.erase_after(prev);
-                break;
-            } else if (i->collision(&enemy)) {
-                enemy.grow(i->getRadius());
-                food.erase_after(prev);
-                break;
-            }
-            prev = i;
-        }
 
         camera = window.getView();
         camera.setCenter(player.get_middle());
