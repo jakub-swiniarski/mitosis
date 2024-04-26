@@ -64,6 +64,7 @@ void run(void) {
         player.update(dt);
 
         /* TODO: spawner class and simplify spawning algorithm */
+        /* TODO: timer class that inherits from sf::Clock */
         if (spawn_clock.getElapsedTime().asSeconds() >= cfg::food::spawn_cooldown) {
             spawn_clock.restart();
             food.push_front(Food(player.getPosition()));
