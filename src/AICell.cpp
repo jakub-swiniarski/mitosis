@@ -4,10 +4,10 @@
 
 #include "config.hpp"
 
-void AICell::update(float mod) {
-    if (clock.getElapsedTime().asSeconds() >= 2.f) {
-        clock.restart();
+AICell::AICell(sf::Vector2f v) : Cell(v), timer(2.f) {};
 
+void AICell::update(float mod) {
+    if (timer.elapsed()) {
         std::random_device dev;
         std::mt19937 rng(dev());
         std::uniform_int_distribution<std::mt19937::result_type> rand_rotation(0, 360);
