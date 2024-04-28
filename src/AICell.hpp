@@ -1,3 +1,6 @@
+#ifndef AICELL_HPP
+#define AICELL_HPP
+
 #include <SFML/System/Clock.hpp>
 
 #include "Cell.hpp"
@@ -9,3 +12,5 @@ public:
     using Cell::Cell;
     void update(float mod);
 };
+
+#endif /* AICELL_HPP */

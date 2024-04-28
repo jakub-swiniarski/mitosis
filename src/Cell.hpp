@@ -1,5 +1,5 @@
-#ifndef BALL_HPP
-#define BALL_HPP
+#ifndef CELL_HPP
+#define CELL_HPP
 
 #include <SFML/System/Vector2.hpp>
 
@@ -16,4 +16,4 @@ public:
     void update(float mod);
 };
 
-#endif /* BALL_HPP */
+#endif /* CELL_HPP */
