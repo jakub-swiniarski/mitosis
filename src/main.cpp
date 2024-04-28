@@ -7,6 +7,7 @@
 #include "EventHandler.hpp"
 #include "Food.hpp"
 #include "InputProcessor.hpp"
+#include "Timer.hpp"
 
 #include "config.hpp"
 
@@ -51,7 +52,7 @@ void run(void) {
     sf::Clock dt_clock;
     EventHandler event_handler(&window);
     InputProcessor input_processor(&player, &window);
-    sf::Clock spawn_clock;
+    Timer spawn_timer(cfg::food::spawn_cooldown);
 
     while (window.isOpen()) {
         float dt = dt_clock.restart().asSeconds();
@@ -64,11 +65,8 @@ void run(void) {
         player.update(dt);
 
         /* TODO: spawner class and simplify spawning algorithm */
-        /* TODO: timer class that inherits from sf::Clock */
-        if (spawn_clock.getElapsedTime().asSeconds() >= cfg::food::spawn_cooldown) {
-            spawn_clock.restart();
+        if (spawn_timer.elapsed())
             food.push_front(Food(player.getPosition()));
-        }
 
         camera = window.getView();
         camera.setCenter(player.get_middle());
