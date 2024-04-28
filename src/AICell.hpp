@@ -1,15 +1,14 @@
 #ifndef AICELL_HPP
 #define AICELL_HPP
 
-#include <SFML/System/Clock.hpp>
-
 #include "Cell.hpp"
+#include "Timer.hpp"
 
 class AICell : public Cell {
-    sf::Clock clock;
+    Timer timer;
 
 public:
-    using Cell::Cell;
+    AICell(sf::Vector2f v);
     void update(float mod);
 };
 
