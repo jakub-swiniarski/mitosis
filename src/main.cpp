@@ -70,7 +70,6 @@ void run(void) {
             food.push_front(Food(player.getPosition()));
         }
 
-
         camera = window.getView();
         camera.setCenter(player.get_middle());
         window.setView(camera);
