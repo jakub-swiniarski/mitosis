@@ -24,7 +24,7 @@ static Cell player(sf::Vector2f(0.f, 0.f));
 static sf::RenderWindow window(sf::VideoMode(cfg::window::width, cfg::window::height), "Mitosis", sf::Style::None);
 
 /* constants */
-static const std::string filepath = "res/";
+/* static const std::string filepath = "res/"; */
 
 /* function implementations */
 void draw(void) {
