@@ -1,6 +1,8 @@
 #ifndef COLLISIONHANDLER_HPP
 #define COLLISIONHANDLER_HPP
 
+#include <forward_list>
+
 class Cell;
 class Food;
 
