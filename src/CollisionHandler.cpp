@@ -1,5 +1,3 @@
-#include <forward_list>
-
 #include "CollisionHandler.hpp"
 #include "Food.hpp"
 #include "Cell.hpp"
