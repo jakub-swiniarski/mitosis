@@ -40,7 +40,7 @@ void Game::run(void) {
     Timer spawn_timer(cfg::food::spawn_cooldown);
 
     while (window->isOpen()) {
-        float dt = dt_clock.restart().asSeconds();
+        const float dt = dt_clock.restart().asSeconds();
 
         collision_handler.update();
         event_handler.update();
