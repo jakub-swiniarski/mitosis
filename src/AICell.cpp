@@ -4,7 +4,7 @@
 
 #include "config.hpp"
 
-AICell::AICell(sf::Vector2f v) : Cell(v), timer(cfg::ai_cell::ai_cooldown) {};
+AICell::AICell(sf::Vector2f v) : Cell(v), timer(cfg::ai_cell::ai_cooldown) {}
 
 void AICell::update(float mod) {
     if (timer.elapsed()) {

@@ -2,9 +2,7 @@
 
 #include "EventHandler.hpp"
 
-EventHandler::EventHandler(sf::Window *w) {
-    window = w;
-}
+EventHandler::EventHandler(sf::Window *w) : window(w) {}
 
 void EventHandler::update(void) {
     while(window->pollEvent(event)) {

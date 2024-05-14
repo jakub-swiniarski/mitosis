@@ -2,11 +2,7 @@
 #include "Food.hpp"
 #include "Cell.hpp"
 
-CollisionHandler::CollisionHandler(Cell *e, Cell *p, std::forward_list<Food> *f) {
-    enemy = e;
-    player = p;
-    food = f;
-}
+CollisionHandler::CollisionHandler(Cell *e, Cell *p, std::forward_list<Food> *f) : enemy(e), player(p), food(f) {}
 
 void CollisionHandler::update(void) {
     auto prev = food->before_begin();

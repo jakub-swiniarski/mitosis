@@ -27,8 +27,7 @@ void Game::draw(void) { /* TODO: drawer class? */
     window->display();
 }
 
-Game::Game(sf::RenderWindow *w) : enemy(sf::Vector2f(50.f, 50.f)), player(sf::Vector2f(0.f, 0.f)){
-    window = w;
+Game::Game(sf::RenderWindow *w) : window(w), enemy(sf::Vector2f(50.f, 50.f)), player(sf::Vector2f(0.f, 0.f)){
     w->setFramerateLimit(cfg::window::fps);
 }
 

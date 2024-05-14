@@ -8,10 +8,7 @@
 
 #include "config.hpp"
 
-InputProcessor::InputProcessor(Cell *p, sf::WindowBase *w) {
-    player = p;
-    window = w;
-}
+InputProcessor::InputProcessor(Cell *p, sf::WindowBase *w) : player(p), window(w) {}
 
 void InputProcessor::update(void) const {
     sf::Vector2i mouse = sf::Mouse::getPosition(*window);

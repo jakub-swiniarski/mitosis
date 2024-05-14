@@ -2,13 +2,10 @@
 
 #include "config.hpp"
 
-Cell::Cell(sf::Vector2f v) {
+Cell::Cell(sf::Vector2f v) : speed(0.f, 0.f) {
     setRadius(cfg::cell::radius);
     setFillColor(sf::Color::White);
     setPosition(v.x, v.y);
-
-    speed.x = 0.f;
-    speed.y = 0.f;
 }
 
 void Cell::grow(float radius) {
@@ -17,8 +14,7 @@ void Cell::grow(float radius) {
 }
 
 void Cell::set_speed(sf::Vector2f v) {
-    speed.x = v.x;
-    speed.y = v.y;
+    speed = v;
 }
 
 void Cell::update(float mod) {
