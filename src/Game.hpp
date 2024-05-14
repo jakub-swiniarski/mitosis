@@ -4,19 +4,17 @@
 #include <forward_list>
 #include <SFML/Graphics/View.hpp>
 
-#include "AICell.hpp"
+#include "Cell.hpp"
 #include "Food.hpp"
 
-class Food;
 namespace sf {
     class RenderWindow;
 }
 
 class Game {
     sf::View camera;
-    AICell enemy;
+    std::forward_list<Cell> cells;
     std::forward_list<Food> food;
-    Cell player;
     sf::RenderWindow *window;
 
     void draw(void);

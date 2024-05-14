@@ -2,20 +2,19 @@
 #include "Food.hpp"
 #include "Cell.hpp"
 
-CollisionHandler::CollisionHandler(Cell *e, Cell *p, std::forward_list<Food> *f) : enemy(e), player(p), food(f) {}
+CollisionHandler::CollisionHandler(std::forward_list<Cell> *c, std::forward_list<Food> *f) : cells(c), food(f) {}
 
 void CollisionHandler::update(void) {
     auto prev = food->before_begin();
-    for (auto i = food->begin(); i != food->end(); i++) {
-        if (i->collision(player)) { /* TODO: don't repeat the same code, enemy and player are both cells */
-            player->grow(i->getRadius());
-            food->erase_after(prev);
-            break;
-        } else if (i->collision(enemy)) {
-            enemy->grow(i->getRadius());
-            food->erase_after(prev);
-            break;
+    for (auto f = food->begin(); f != food->end(); f++) {
+        for (auto c = cells->begin(); c != cells->end(); c++) {
+            if (f->collision(&(*c))) {
+                c->grow(f->getRadius());
+                food->erase_after(prev);
+                //break; /* TODO: avoid break and others */
+                return;
+            }
         }
-        prev = i;
+        prev = f;
     }
 }
