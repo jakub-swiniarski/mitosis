@@ -1,11 +1,23 @@
+#include <random>
+
 #include "Cell.hpp"
 
 #include "config.hpp"
 
-Cell::Cell(sf::Vector2f v) : speed(0.f, 0.f) {
+void Cell::update_ai(void) {
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<std::mt19937::result_type> rand_rotation(0, 360);
+    float rotation = rand_rotation(rng) * M_PI / 180.f;
+    
+    speed.x = cfg::cell::speed * cos(rotation);
+    speed.y = cfg::cell::speed * sin(rotation);
+}
+
+Cell::Cell(sf::Vector2f v, bool ai) : is_ai(ai), speed(0.f, 0.f), timer(cfg::cell::ai_cooldown) {
     setRadius(cfg::cell::radius);
     setFillColor(sf::Color::White);
-    setPosition(v.x, v.y);
+    setPosition(v);
 }
 
 void Cell::grow(float radius) {
@@ -19,4 +31,7 @@ void Cell::set_speed(sf::Vector2f v) {
 
 void Cell::update(float mod) {
     move(speed.x * mod, speed.y * mod);
+
+    if (is_ai && timer.elapsed())
+        update_ai();
 }

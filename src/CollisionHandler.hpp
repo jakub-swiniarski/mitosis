@@ -7,12 +7,11 @@ class Cell;
 class Food;
 
 class CollisionHandler {
-    Cell *enemy;
-    Cell *player;
+    std::forward_list<Cell> *cells;
     std::forward_list<Food> *food;
 
 public:
-    CollisionHandler(Cell *e, Cell *p, std::forward_list<Food> *f);
+    CollisionHandler(std::forward_list<Cell> *c, std::forward_list<Food> *f);
     void update(void);
 };
 

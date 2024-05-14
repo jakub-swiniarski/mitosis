@@ -1,5 +1,6 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include "Cell.hpp"
 #include "CollisionHandler.hpp"
 #include "EventHandler.hpp"
 #include "Game.hpp"
@@ -20,22 +21,25 @@ void Game::draw(void) { /* TODO: drawer class? */
     for (const auto &i : food)
         if (camera_rect.intersects(i.getGlobalBounds()))
             window->draw(i);
-    if (camera_rect.intersects(enemy.getGlobalBounds()))
-        window->draw(enemy);
-    window->draw(player);
+    for (const auto &i : cells)
+        if (camera_rect.intersects(i.getGlobalBounds()))
+            window->draw(i);
     
     window->display();
 }
 
-Game::Game(sf::RenderWindow *w) : window(w), enemy(sf::Vector2f(50.f, 50.f)), player(sf::Vector2f(0.f, 0.f)) {
+Game::Game(sf::RenderWindow *w) : window(w) {
     w->setFramerateLimit(cfg::window::fps);
+
+    cells.push_front(Cell(sf::Vector2f(50.f, 50.f), 1));
+    cells.push_front(Cell(sf::Vector2f(0.f, 0.f), 0));
 }
 
 void Game::run(void) {
-    CollisionHandler collision_handler(&enemy, &player, &food);
+    CollisionHandler collision_handler(&cells, &food);
     sf::Clock dt_clock;
     EventHandler event_handler(window);
-    InputProcessor input_processor(&player, window);
+    InputProcessor input_processor(&cells.front(), window);
     Timer spawn_timer(cfg::food::spawn_cooldown);
 
     while (window->isOpen()) {
@@ -45,15 +49,15 @@ void Game::run(void) {
         event_handler.update();
         input_processor.update();
 
-        enemy.update(dt);
-        player.update(dt);
+        for (auto &i : cells)
+            i.update(dt);
 
         /* TODO: spawner class and simplify spawning algorithm */
         if (spawn_timer.elapsed())
-            food.push_front(Food(player.getPosition()));
+            food.push_front(Food(cells.front().getPosition()));
 
         camera = window->getView();
-        camera.setCenter(player.get_middle());
+        camera.setCenter(cells.front().get_middle()); /* TODO: player = cells front */
         window->setView(camera);
 
         draw();

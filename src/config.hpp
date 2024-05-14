@@ -11,11 +11,8 @@ namespace cfg {
     namespace cell {
         static constexpr float radius = 25.f;
         static constexpr float speed = 100.f;
-    };
-    
-    namespace ai_cell {
         static constexpr float ai_cooldown = 2.f; /* in seconds */
-    }
+    };
 
     namespace food {
         static constexpr float radius = 10.f;
