@@ -57,7 +57,7 @@ void Game::run(void) {
             food.push_front(Food(cells.front().getPosition()));
 
         camera = window->getView();
-        camera.setCenter(cells.front().get_middle()); /* TODO: player = cells front */
+        camera.setCenter(cells.front().get_middle()); /* TODO: player = cells front, do the same in other files */
         window->setView(camera);
 
         draw();
