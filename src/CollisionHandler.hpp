@@ -1,17 +1,17 @@
 #ifndef COLLISIONHANDLER_HPP
 #define COLLISIONHANDLER_HPP
 
-#include <forward_list>
+#include <list>
 
 class Cell;
 class Food;
 
 class CollisionHandler {
-    std::forward_list<Cell> *cells;
-    std::forward_list<Food> *food;
+    std::list<Cell> *cells;
+    std::list<Food> *food;
 
 public:
-    CollisionHandler(std::forward_list<Cell> *c, std::forward_list<Food> *f);
+    CollisionHandler(std::list<Cell> *c, std::list<Food> *f);
     void update(void);
 };
 
