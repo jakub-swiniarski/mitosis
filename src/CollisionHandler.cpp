@@ -9,13 +9,12 @@ void CollisionHandler::update(void) {
         for (auto c1 = cells->begin(); c1 != cells->end(); c1++) {
             if (c != c1 && c->collision(&(*c1))) {
                 if (c->getRadius() > c1->getRadius()) {
+                    if (c1 == cells->begin())
+                        exit(0); /* TODO: game over screen */
                     c->grow(c1->getRadius());
                     cells->erase(c1);
-                } else {
-                    c1->grow(c->getRadius());
-                    cells->erase(c);
+                    return;
                 }
-                return;
             }
         }
 
