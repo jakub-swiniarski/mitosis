@@ -31,8 +31,8 @@ void Game::draw(void) { /* TODO: drawer class? */
 Game::Game(sf::RenderWindow *w) : window(w) {
     w->setFramerateLimit(cfg::window::fps);
 
-    cells.push_front(Cell(sf::Vector2f(50.f, 50.f), 1));
-    cells.push_front(Cell(sf::Vector2f(0.f, 0.f), 0));
+    cells.push_back(Cell(sf::Vector2f(0.f, 0.f), 0));
+    cells.push_back(Cell(sf::Vector2f(50.f, 50.f), 1));
 }
 
 void Game::run(void) {

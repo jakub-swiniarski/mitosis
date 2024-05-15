@@ -1,7 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include <forward_list>
+#include <list>
 #include <SFML/Graphics/View.hpp>
 
 #include "Cell.hpp"
@@ -13,8 +13,8 @@ namespace sf {
 
 class Game {
     sf::View camera;
-    std::forward_list<Cell> cells;
-    std::forward_list<Food> food;
+    std::list<Cell> cells;
+    std::list<Food> food;
     sf::RenderWindow *window;
 
     void draw(void);
