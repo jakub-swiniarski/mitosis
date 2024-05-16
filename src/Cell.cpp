@@ -14,7 +14,7 @@ void Cell::update_ai(void) {
     speed.y = cfg::cell::speed * sin(rotation);
 }
 
-Cell::Cell(sf::Vector2f v, bool ai) : is_ai(ai), speed(0.f, 0.f), timer(cfg::cell::ai_cooldown) {
+Cell::Cell(sf::Vector2f v, bool ai) : is_ai(ai), speed(0.f, 0.f), timer(cfg::ai::cooldown) {
     setRadius(cfg::cell::radius);
     setFillColor(sf::Color::White);
     setPosition(v);
