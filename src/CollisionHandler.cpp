@@ -12,7 +12,7 @@ void CollisionHandler::update(void) {
                     if (c1 == cells->begin())
                         exit(0); /* TODO: game over screen */
                     c->grow(c1->getRadius());
-                    c1 = cells->erase(c1);
+                    c1 = cells->erase(c1); /* erase() returns the next valid iterator. When the loop ends, c1 gets incremented. To avoid skipping an element, we need to go back. */
                     c1--;
                 }
             }
