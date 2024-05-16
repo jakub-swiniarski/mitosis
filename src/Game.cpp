@@ -32,7 +32,8 @@ Game::Game(sf::RenderWindow *w) : window(w) {
     w->setFramerateLimit(cfg::window::fps);
 
     cells.push_back(Cell(sf::Vector2f(0.f, 0.f), 0));
-    cells.push_back(Cell(sf::Vector2f(50.f, 50.f), 1));
+    for (int i = 0; i < cfg::ai::num; i++)
+        cells.push_back(Cell(sf::Vector2f(50.f, 50.f), 1));
 }
 
 void Game::run(void) {

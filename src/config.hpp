@@ -8,10 +8,14 @@ namespace cfg {
         static constexpr unsigned int fps = 60;
     };
 
+    namespace ai {
+        static constexpr unsigned int num = 10;
+        static constexpr float cooldown = 2.f; /* in seconds */
+    }
+
     namespace cell {
         static constexpr float radius = 25.f;
         static constexpr float speed = 100.f;
-        static constexpr float ai_cooldown = 2.f; /* in seconds */
     };
 
     namespace food {
