@@ -13,6 +13,7 @@ void CollisionHandler::update(void) {
                         exit(0); /* TODO: game over screen */
                     c->grow(c1->getRadius());
                     c1 = cells->erase(c1);
+                    c1--;
                 }
             }
         }
@@ -21,6 +22,7 @@ void CollisionHandler::update(void) {
             if (f->collision(&(*c))) {
                 c->grow(f->getRadius());
                 f = food->erase(f);
+                f--;
             }
         }
     }
