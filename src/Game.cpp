@@ -18,10 +18,10 @@ void Game::draw(void) { /* TODO: drawer class? */
     
     window->clear();
     
-    for (const auto &i : food)
+    for (const auto &i : cells)
         if (camera_rect.intersects(i.getGlobalBounds()))
             window->draw(i);
-    for (const auto &i : cells)
+    for (const auto &i : food)
         if (camera_rect.intersects(i.getGlobalBounds()))
             window->draw(i);
     
