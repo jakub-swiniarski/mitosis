@@ -1,3 +1,1 @@
-![Badge Language]
-
 test
