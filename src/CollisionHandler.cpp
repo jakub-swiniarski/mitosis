@@ -1,8 +1,9 @@
 #include "CollisionHandler.hpp"
+#include "Counter.hpp"
 #include "Food.hpp"
 #include "Cell.hpp"
 
-CollisionHandler::CollisionHandler(std::list<Cell> *c, std::list<Food> *f) : cells(c), food(f) {}
+CollisionHandler::CollisionHandler(std::list<Cell> *c, std::list<Food> *f, Counter *ctr) : cells(c), food(f), counter(ctr) {}
 
 void CollisionHandler::update(void) {
     for (auto c = cells->begin(); c != cells->end(); c++) {
@@ -14,6 +15,7 @@ void CollisionHandler::update(void) {
                     c->grow(c1->getRadius());
                     c1 = cells->erase(c1); /* erase() returns the next valid iterator. When the loop ends, c1 gets incremented. To avoid skipping an element, we need to go back. */
                     c1--;
+                    counter->update(-1);
                 }
             }
         }

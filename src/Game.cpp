@@ -45,7 +45,7 @@ Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, sf::Vector2f(
 }
 
 void Game::run(void) {
-    CollisionHandler collision_handler(&cells, &food);
+    CollisionHandler collision_handler(&cells, &food, &counter);
     sf::Clock dt_clock;
     EventHandler event_handler(window);
     InputProcessor input_processor(player, window);
@@ -57,8 +57,6 @@ void Game::run(void) {
         collision_handler.update();
         event_handler.update();
         input_processor.update();
-
-        counter.update(1);
 
         for (auto &i : cells)
             i.update(dt);
