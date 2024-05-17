@@ -34,13 +34,15 @@ Game::Game(sf::RenderWindow *w) : window(w) {
     cells.push_back(Cell(sf::Vector2f(0.f, 0.f), 0));
     for (int i = 0; i < cfg::ai::num; i++)
         cells.push_back(Cell(sf::Vector2f(50.f, 50.f), 1));
+
+    player = &cells.front();
 }
 
 void Game::run(void) {
     CollisionHandler collision_handler(&cells, &food);
     sf::Clock dt_clock;
     EventHandler event_handler(window);
-    InputProcessor input_processor(&cells.front(), window);
+    InputProcessor input_processor(player, window);
     Timer spawn_timer(cfg::food::spawn_cooldown);
 
     while (window->isOpen()) {
@@ -54,10 +56,10 @@ void Game::run(void) {
             i.update(dt);
 
         if (spawn_timer.elapsed())
-            food.push_front(Food(cells.front().getPosition()));
+            food.push_front(Food(player->getPosition()));
 
         camera = window->getView();
-        camera.setCenter(cells.front().get_middle()); /* TODO: player = cells front, do the same in other files */
+        camera.setCenter(player->get_middle());
         window->setView(camera);
 
         draw();

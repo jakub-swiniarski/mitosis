@@ -12,10 +12,11 @@ namespace sf {
 }
 
 class Game {
+    sf::RenderWindow *window;
     sf::View camera;
     std::list<Cell> cells;
     std::list<Food> food;
-    sf::RenderWindow *window;
+    Cell *player;
 
     void draw(void);
 
