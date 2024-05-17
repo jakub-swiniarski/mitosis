@@ -34,7 +34,7 @@ void Game::draw(void) {
 Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, sf::Vector2f(22.f, 2.f), &font) {
     w->setFramerateLimit(cfg::window::fps);
 
-    filepath = "res/";
+    filepath = "/usr/local/share/mitosis/";
     font.loadFromFile(filepath + "font.ttf");
 
     cells.push_back(Cell(sf::Vector2f(0.f, 0.f), 0));
