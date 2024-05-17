@@ -1,7 +1,8 @@
+#include <string>
+
 #include "Counter.hpp"
 
 #include "config.hpp"
-#include <string>
 
 Counter::Counter(int v, sf::Vector2f pos, sf::Font *f) : value(v) {
     text.setPosition(pos);
