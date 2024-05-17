@@ -1,4 +1,5 @@
 # Mitosis
+Your goal is to grow your cell by consuming smaller cells while avoiding being eaten by larger ones.
 
 ## How to install?
 ### Prerequisites
