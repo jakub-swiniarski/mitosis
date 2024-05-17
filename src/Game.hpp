@@ -1,10 +1,13 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
+#include <SFML/Graphics/Font.hpp>
 #include <list>
 #include <SFML/Graphics/View.hpp>
+#include <string>
 
 #include "Cell.hpp"
+#include "Counter.hpp"
 #include "Food.hpp"
 
 namespace sf {
@@ -17,6 +20,9 @@ class Game {
     std::list<Cell> cells;
     std::list<Food> food;
     Cell *player;
+    std::string filepath;
+    sf::Font font;
+    Counter counter;
 
     void draw(void);
 
@@ -25,4 +31,4 @@ public:
     void run(void);
 };
 
-#endif
+#endif /* GAME_HPP */
