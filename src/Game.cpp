@@ -8,7 +8,7 @@
 
 #include "config.hpp"
 
-void Game::draw(void) { /* TODO: drawer class? */
+void Game::draw(void) {
     sf::FloatRect camera_rect(
         camera.getCenter().x - camera.getSize().x / 2.f,
         camera.getCenter().y - camera.getSize().y / 2.f,
@@ -53,7 +53,6 @@ void Game::run(void) {
         for (auto &i : cells)
             i.update(dt);
 
-        /* TODO: spawner class and simplify spawning algorithm */
         if (spawn_timer.elapsed())
             food.push_front(Food(cells.front().getPosition()));
 
