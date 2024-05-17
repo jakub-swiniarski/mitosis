@@ -22,6 +22,10 @@ namespace cfg {
         static constexpr float radius = 10.f;
         static constexpr float spawn_cooldown = 0.5f; /* in seconds */
     };
+
+    namespace text {
+        static constexpr unsigned int size = 36;
+    }
 }
 
 #endif /* CONFIG_HPP */

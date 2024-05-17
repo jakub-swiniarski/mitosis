@@ -24,12 +24,18 @@ void Game::draw(void) {
     for (const auto &i : food)
         if (camera_rect.intersects(i.getGlobalBounds()))
             window->draw(i);
+
+    window->setView(window->getDefaultView());
+    window->draw(counter.get_text());
     
     window->display();
 }
 
-Game::Game(sf::RenderWindow *w) : window(w) {
+Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, sf::Vector2f(10.f, 10.f), &font) {
     w->setFramerateLimit(cfg::window::fps);
+
+    filepath = "res/";
+    font.loadFromFile(filepath + "font.ttf");
 
     cells.push_back(Cell(sf::Vector2f(0.f, 0.f), 0));
     for (int i = 0; i < cfg::ai::num; i++)
@@ -51,6 +57,8 @@ void Game::run(void) {
         collision_handler.update();
         event_handler.update();
         input_processor.update();
+
+        counter.update(1);
 
         for (auto &i : cells)
             i.update(dt);

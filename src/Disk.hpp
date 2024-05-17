@@ -11,4 +11,4 @@ public:
     sf::Vector2f get_middle(void) const;
 };
 
-#endif
+#endif /* DISK_HPP */
