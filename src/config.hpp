@@ -24,7 +24,7 @@ namespace cfg {
     };
 
     namespace text {
-        static constexpr unsigned int size = 36;
+        static constexpr unsigned int size = 64;
     }
 }
 

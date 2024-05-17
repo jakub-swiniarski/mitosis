@@ -31,7 +31,7 @@ void Game::draw(void) {
     window->display();
 }
 
-Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, sf::Vector2f(10.f, 10.f), &font) {
+Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, sf::Vector2f(22.f, 2.f), &font) {
     w->setFramerateLimit(cfg::window::fps);
 
     filepath = "res/";
