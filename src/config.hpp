@@ -1,6 +1,8 @@
 #ifndef CONFIG_HPP
 #define CONFIG_HPP
 
+#define DEBUG
+
 namespace cfg {
     namespace window {
         static constexpr unsigned int width = 1280;
