@@ -1,14 +1,12 @@
-#include <string>
-
 #include "Counter.hpp"
 
 #include "config.hpp"
 
-Counter::Counter(int v, sf::Vector2f pos, sf::Font *f) : value(v) {
+Counter::Counter(int v, std::string l, sf::Vector2f pos, sf::Font *f) : value(v), label(l) {
     text.setPosition(pos);
     text.setFont(*f);
     text.setCharacterSize(cfg::text::size);
-    text.setString(std::to_string(value));
+    text.setString(label + std::to_string(value));
 }
 
 sf::Text &Counter::get_text(void) {
@@ -17,5 +15,5 @@ sf::Text &Counter::get_text(void) {
 
 void Counter::update(int diff) {
     value += diff;
-    text.setString(std::to_string(value));
+    text.setString(label + std::to_string(value));
 }

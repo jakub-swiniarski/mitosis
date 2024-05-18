@@ -9,7 +9,7 @@ namespace cfg {
     };
 
     namespace ai {
-        static constexpr unsigned int num = 10;
+        static constexpr unsigned int num = 9;
         static constexpr float cooldown = 2.f; /* in seconds */
     }
 
