@@ -1,4 +1,5 @@
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <iostream>
 
 #include "Cell.hpp"
 #include "CollisionHandler.hpp"
@@ -32,13 +33,12 @@ void Game::draw(void) {
 }
 
 Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, "ENEMIES: ", sf::Vector2f(20.f, 2.f), &font) {
-    w->setFramerateLimit(cfg::window::fps);
-
 #ifdef DEBUG
     filepath = "res/";
 #else
+    w->setFramerateLimit(cfg::window::fps);
     filepath = "/usr/local/share/mitosis/";
-#endif
+#endif /* DEBUG */
 
     font.loadFromFile(filepath + "font.ttf");
 
@@ -55,6 +55,11 @@ void Game::run(void) {
     EventHandler event_handler(window);
     InputProcessor input_processor(player, window);
     Timer spawn_timer(cfg::food::spawn_cooldown);
+
+#ifdef DEBUG
+    float fps_avg = 1.f;
+    Timer fps_timer(0.5);
+#endif /* DEBUG */
 
     while (window->isOpen()) {
         const float dt = dt_clock.restart().asSeconds();
@@ -74,5 +79,11 @@ void Game::run(void) {
         window->setView(camera);
 
         draw();
+
+#ifdef DEBUG
+        fps_avg = 0.9 * fps_avg + 0.1 * (1 / dt);
+        if (fps_timer.elapsed()) 
+            std::cout << fps_avg << '\n';
+#endif /* DEBUG */
     }
 }
