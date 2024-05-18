@@ -31,10 +31,11 @@ void Game::draw(void) {
     window->display();
 }
 
-Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, sf::Vector2f(22.f, 2.f), &font) {
+Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, "ENEMIES: ", sf::Vector2f(22.f, 2.f), &font) {
     w->setFramerateLimit(cfg::window::fps);
 
-    filepath = "/usr/local/share/mitosis/";
+    //filepath = "/usr/local/share/mitosis/";
+    filepath = "res/";
     font.loadFromFile(filepath + "font.ttf");
 
     cells.push_back(Cell(sf::Vector2f(0.f, 0.f), 0));
