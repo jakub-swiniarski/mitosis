@@ -39,6 +39,7 @@ Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, "ENEMIES: ", 
 #else
     filepath = "/usr/local/share/mitosis/";
 #endif
+
     font.loadFromFile(filepath + "font.ttf");
 
     cells.push_back(Cell(sf::Vector2f(0.f, 0.f), 0));
