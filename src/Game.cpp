@@ -1,5 +1,4 @@
 #include <SFML/Graphics/RenderWindow.hpp>
-#include <iostream>
 
 #include "Cell.hpp"
 #include "CollisionHandler.hpp"
@@ -8,6 +7,10 @@
 #include "InputProcessor.hpp"
 
 #include "config.hpp"
+
+#ifdef DEBUG
+#include <iostream>
+#endif /* DEBUG */
 
 void Game::draw(void) {
     sf::FloatRect camera_rect(
