@@ -11,7 +11,7 @@ class Counter {
     sf::Text text;
 
 public:
-    Counter(int v, std::string l, sf::Vector2f pos, sf::Font *f);
+    Counter(int v, std::string l, sf::Vector2f pos, sf::Font &f);
     sf::Text &get_text(void);
     void update(int diff);
 };

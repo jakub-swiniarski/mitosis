@@ -2,9 +2,9 @@
 
 #include "config.hpp"
 
-Counter::Counter(int v, std::string l, sf::Vector2f pos, sf::Font *f) : value(v), label(l) {
+Counter::Counter(int v, std::string l, sf::Vector2f pos, sf::Font &f) : value(v), label(l) {
     text.setPosition(pos);
-    text.setFont(*f);
+    text.setFont(f);
     text.setCharacterSize(cfg::text::size);
     text.setString(label + std::to_string(value));
 }
