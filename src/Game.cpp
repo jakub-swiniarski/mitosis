@@ -32,7 +32,7 @@ void Game::draw(void) {
     window->display();
 }
 
-Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, "ENEMIES: ", sf::Vector2f(20.f, 2.f), &font) {
+Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, "ENEMIES: ", sf::Vector2f(20.f, 2.f), font) {
 #ifdef DEBUG
     filepath = "res/";
 #else
