@@ -3,6 +3,7 @@
 #include "Cell.hpp"
 #include "CollisionHandler.hpp"
 #include "DrawableContainer.hpp"
+#include "Drawer.hpp"
 #include "EventHandler.hpp"
 #include "Game.hpp"
 #include "InputProcessor.hpp"
@@ -12,29 +13,6 @@
 #ifdef DEBUG
 #include <iostream>
 #endif /* DEBUG */
-
-void Game::draw(void) {
-    sf::FloatRect camera_rect(
-        camera.getCenter().x - camera.getSize().x / 2.f,
-        camera.getCenter().y - camera.getSize().y / 2.f,
-        camera.getSize().x,
-        camera.getSize().y
-    );
-    
-    window->clear();
-    
-    for (const auto &i : cells)
-        if (camera_rect.intersects(i.getGlobalBounds()))
-            window->draw(i);
-    for (const auto &i : food)
-        if (camera_rect.intersects(i.getGlobalBounds()))
-            window->draw(i);
-
-    window->setView(window->getDefaultView());
-    window->draw(counter.get_text());
-    
-    window->display();
-}
 
 Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, "ENEMIES: ", sf::Vector2f(20.f, 2.f), font) {
 #ifdef DEBUG
@@ -62,6 +40,7 @@ void Game::run(void) {
     };
 
     CollisionHandler collision_handler(&drawables);
+    Drawer drawer(window, &camera, &drawables);
     sf::Clock dt_clock;
     EventHandler event_handler(window);
     InputProcessor input_processor(player, window);
@@ -89,7 +68,7 @@ void Game::run(void) {
         camera.setCenter(player->get_middle());
         window->setView(camera);
 
-        draw();
+        drawer.update();
 
 #ifdef DEBUG
         fps_avg = 0.9 * fps_avg + 0.1 * (1 / dt);

@@ -24,8 +24,6 @@ class Game {
     sf::Font font;
     Counter counter;
 
-    void draw(void);
-
 public:
     Game(sf::RenderWindow *w);
     void run(void);
