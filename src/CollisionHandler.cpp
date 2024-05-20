@@ -3,7 +3,7 @@
 #include "Food.hpp"
 #include "Cell.hpp"
 
-CollisionHandler::CollisionHandler(std::list<Cell> *c, std::list<Food> *f, Counter *ctr) : cells(c), food(f), counter(ctr) {}
+CollisionHandler::CollisionHandler(DrawableContainer *dc) : cells(dc->cells), food(dc->food), counter(dc->counter) {}
 
 void CollisionHandler::update(void) {
     for (auto c = cells->begin(); c != cells->end(); c++) {
