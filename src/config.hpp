@@ -1,6 +1,8 @@
 #ifndef CONFIG_HPP
 #define CONFIG_HPP
 
+#define DEBUG
+
 namespace cfg {
     namespace window {
         static constexpr unsigned int width = 1280;
@@ -9,7 +11,7 @@ namespace cfg {
     };
 
     namespace ai {
-        static constexpr unsigned int num = 10;
+        static constexpr unsigned int num = 9;
         static constexpr float cooldown = 2.f; /* in seconds */
     }
 
@@ -24,7 +26,7 @@ namespace cfg {
     };
 
     namespace text {
-        static constexpr unsigned int size = 64;
+        static constexpr unsigned int size = 48;
     }
 }
 

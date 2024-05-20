@@ -2,8 +2,8 @@
 
 #include "Disk.hpp"
 
-bool Disk::collision(const Disk *d) const {
-    if (get_distance(d->get_middle()) <= getRadius() + d->getRadius()) 
+bool Disk::collision(const Disk &d) const {
+    if (get_distance(d.get_middle()) <= getRadius() + d.getRadius()) 
         return 1;
     return 0;
 }
