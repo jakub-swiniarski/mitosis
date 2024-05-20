@@ -2,6 +2,7 @@
 
 #include "Cell.hpp"
 #include "CollisionHandler.hpp"
+#include "DrawableContainer.hpp"
 #include "EventHandler.hpp"
 #include "Game.hpp"
 #include "InputProcessor.hpp"
@@ -53,7 +54,14 @@ Game::Game(sf::RenderWindow *w) : window(w), counter(cfg::ai::num, "ENEMIES: ", 
 }
 
 void Game::run(void) {
-    CollisionHandler collision_handler(&cells, &food, &counter);
+    /* TODO: vector or list of ui elements */
+    DrawableContainer drawables = {
+        .cells = &cells,
+        .food = &food,
+        .counter = &counter
+    };
+
+    CollisionHandler collision_handler(&drawables);
     sf::Clock dt_clock;
     EventHandler event_handler(window);
     InputProcessor input_processor(player, window);
