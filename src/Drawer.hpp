@@ -1,6 +1,8 @@
 #ifndef DRAWER_HPP
 #define DRAWER_HPP
 
+#include <SFML/Graphics/Rect.hpp>
+
 #include <list>
 
 class Cell;
@@ -15,9 +17,13 @@ namespace sf {
 class Drawer {
     sf::RenderWindow *window;
     sf::View *camera;
+    sf::FloatRect camera_rect;
     std::list<Cell> *cells;
     std::list<Food> *food;
     Counter *counter;
+
+    template<class T>
+    void draw_container(T *c);
 
 public:
     Drawer(sf::RenderWindow *w, sf::View *c, DrawableContainer *dc);
