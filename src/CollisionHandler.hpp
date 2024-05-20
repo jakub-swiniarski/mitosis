@@ -3,6 +3,8 @@
 
 #include <list>
 
+#include "DrawableContainer.hpp"
+
 class Cell;
 class Counter;
 class Food;
@@ -13,7 +15,7 @@ class CollisionHandler {
     Counter *counter;
 
 public:
-    CollisionHandler(std::list<Cell> *c, std::list<Food> *f, Counter *ctr);
+    CollisionHandler(DrawableContainer *dc);
     void update(void);
 };
 
