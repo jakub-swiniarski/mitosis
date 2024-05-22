@@ -1,9 +1,7 @@
 #ifndef COUNTER_HPP
 #define COUNTER_HPP
 
-#include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
-#include <SFML/System/Vector2.hpp>
 
 class Counter {
     int value;

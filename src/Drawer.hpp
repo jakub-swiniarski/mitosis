@@ -1,9 +1,8 @@
 #ifndef DRAWER_HPP
 #define DRAWER_HPP
 
-#include <SFML/Graphics/Rect.hpp>
-
 #include <list>
+#include <SFML/Graphics/Rect.hpp>
 
 class Cell;
 class Food;
