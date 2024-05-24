@@ -1,8 +1,6 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
-#include <SFML/System/Vector2.hpp>
-
 #include "Disk.hpp"
 #include "Timer.hpp"
 

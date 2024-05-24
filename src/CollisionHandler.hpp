@@ -1,8 +1,6 @@
 #ifndef COLLISIONHANDLER_HPP
 #define COLLISIONHANDLER_HPP
 
-#include <list>
-
 #include "DrawableContainer.hpp"
 
 class Cell;

@@ -1,10 +1,8 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include <SFML/Graphics/Font.hpp>
 #include <list>
 #include <SFML/Graphics/View.hpp>
-#include <string>
 
 #include "Cell.hpp"
 #include "Counter.hpp"
