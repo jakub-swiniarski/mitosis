@@ -9,9 +9,10 @@
 
 template<class T>
 void Drawer::draw_container(T& c) {
-    for (const auto& i : c)
+    for (const auto& i : c) {
         if (camera_rect.intersects(i.getGlobalBounds()))
             window.draw(i);
+    }
 }
     
 Drawer::Drawer(sf::RenderWindow& window, sf::View& camera, DrawableContainer& drawables)
