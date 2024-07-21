@@ -4,14 +4,15 @@
 #include <SFML/Graphics/Text.hpp>
 
 class Counter {
-    int value;
+    int         value;
     std::string label;
-    sf::Text text;
+    sf::Text    text;
 
 public:
-    Counter(int v, std::string l, sf::Vector2f pos, sf::Font &f);
-    sf::Text &get_text(void);
-    void update(int diff);
+    Counter(int value, std::string label, sf::Vector2f position, sf::Font& font);
+
+    sf::Text& get_text(void);
+    void      update(int diff);
 };
 
-#endif /* COUNTER_HPP */
+#endif // COUNTER_HPP

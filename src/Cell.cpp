@@ -14,10 +14,13 @@ void Cell::update_ai(void) {
     speed.y = cfg::cell::speed * sin(rotation);
 }
 
-Cell::Cell(sf::Vector2f v, bool ai) : is_ai(ai), speed(0.f, 0.f), timer(cfg::ai::cooldown) {
+Cell::Cell(sf::Vector2f position, bool is_ai)
+    : is_ai(is_ai),
+      speed(0.f, 0.f),
+      timer(cfg::ai::cooldown) {
     setRadius(cfg::cell::radius);
     setFillColor(sf::Color::White);
-    setPosition(v);
+    setPosition(position);
 }
 
 void Cell::grow(float radius) {
@@ -25,8 +28,8 @@ void Cell::grow(float radius) {
     move(-radius / 10.f, -radius / 10.f);
 }
 
-void Cell::set_speed(sf::Vector2f v) {
-    speed = v;
+void Cell::set_speed(sf::Vector2f speed) {
+    this->speed = speed;
 }
 
 void Cell::update(float mod) {

@@ -14,19 +14,23 @@ namespace sf {
 }
 
 class Drawer {
-    sf::RenderWindow *window;
-    sf::View *camera;
-    sf::FloatRect camera_rect;
-    std::list<Cell> *cells;
-    std::list<Food> *food;
-    Counter *counter;
+    // ----- CORE ----- //
+    sf::RenderWindow& window;
+    sf::View&         camera;
+    sf::FloatRect     camera_rect;
+
+    // ----- DRAWABLES ----- //
+    std::list<Cell>& cells;
+    std::list<Food>& food;
+    Counter&         counter;
 
     template<class T>
-    void draw_container(T *c);
+    void draw_container(T& c);
 
 public:
-    Drawer(sf::RenderWindow *w, sf::View *c, DrawableContainer *dc);
+    Drawer(sf::RenderWindow& window, sf::View& camera, DrawableContainer& drawables);
+
     void update(void);
 };
 
-#endif /* DRAWER_HPP */
+#endif // DRAWER_HPP

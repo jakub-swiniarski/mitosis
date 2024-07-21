@@ -5,7 +5,7 @@
 
 class Food : public Disk {
 public:
-    Food(sf::Vector2f player_pos);
+    Food(sf::Vector2f player_position);
 };
 
-#endif /* FOOD_HPP */
+#endif // FOOD_HPP
