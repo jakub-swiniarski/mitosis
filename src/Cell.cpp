@@ -5,9 +5,6 @@
 #include "config.hpp"
 
 void Cell::update_ai(void) {
-    std::random_device dev;
-    std::mt19937 rng(dev());
-    std::uniform_int_distribution<std::mt19937::result_type> rand_rotation(0, 360);
     float rotation = rand_rotation(rng) * M_PI / 180.0f;
     
     speed.x = cfg::cell::speed * cos(rotation);
@@ -17,7 +14,9 @@ void Cell::update_ai(void) {
 Cell::Cell(sf::Vector2f position, bool is_ai)
     : is_ai(is_ai),
       speed(0.0f, 0.0f),
-      timer(cfg::ai::cooldown) {
+      timer(cfg::ai::cooldown),
+      rng(std::random_device{}()),
+      rand_rotation(0, 360) {
     setRadius(cfg::cell::radius);
     setFillColor(sf::Color::White);
     setPosition(position);

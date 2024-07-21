@@ -3,11 +3,17 @@
 
 #include "Disk.hpp"
 #include "Timer.hpp"
+#include <random>
 
 class Cell : public Disk {
+    // ----- CORE ----- //
     sf::Vector2f speed;
-    Timer        timer;
-    bool         is_ai;
+
+    // ----- AI ----- //
+    Timer                                                    timer;
+    bool                                                     is_ai;
+    std::mt19937                                             rng;
+    std::uniform_int_distribution<std::mt19937::result_type> rand_rotation;
 
     void update_ai(void);
 
