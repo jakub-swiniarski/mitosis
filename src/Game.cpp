@@ -36,7 +36,7 @@ Game::Game(sf::RenderWindow& window)
 }
 
 void Game::run(void) {
-    /* TODO: vector or list of ui elements */
+    // TODO: vector or list of ui elements
     DrawableContainer drawables = {
         .cells   = cells,
         .food    = food,
