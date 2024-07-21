@@ -23,7 +23,7 @@ Game::Game(sf::RenderWindow& window)
 #else
     window.setFramerateLimit(cfg::window::fps);
     res_path = "/usr/local/share/mitosis/";
-#endif /* DEBUG */
+#endif // DEBUG
 
     if (!font.loadFromFile(res_path + "font.ttf"))
         throw std::runtime_error("Failed to load font.");
