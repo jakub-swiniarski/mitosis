@@ -8,7 +8,7 @@ void Cell::update_ai(void) {
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> rand_rotation(0, 360);
-    float rotation = rand_rotation(rng) * M_PI / 180.f;
+    float rotation = rand_rotation(rng) * M_PI / 180.0f;
     
     speed.x = cfg::cell::speed * cos(rotation);
     speed.y = cfg::cell::speed * sin(rotation);
@@ -16,7 +16,7 @@ void Cell::update_ai(void) {
 
 Cell::Cell(sf::Vector2f position, bool is_ai)
     : is_ai(is_ai),
-      speed(0.f, 0.f),
+      speed(0.0f, 0.0f),
       timer(cfg::ai::cooldown) {
     setRadius(cfg::cell::radius);
     setFillColor(sf::Color::White);
@@ -24,8 +24,8 @@ Cell::Cell(sf::Vector2f position, bool is_ai)
 }
 
 void Cell::grow(float radius) {
-    setRadius(getRadius() + radius / 10.f);
-    move(-radius / 10.f, -radius / 10.f);
+    setRadius(getRadius() + radius);
+    move(-radius, -radius);
 }
 
 void Cell::set_speed(sf::Vector2f speed) {

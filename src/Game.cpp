@@ -17,7 +17,7 @@
 
 Game::Game(sf::RenderWindow& window)
     : window(window),
-      counter(cfg::ai::num, "ENEMIES: ", sf::Vector2f(20.f, 2.f), font) {
+      counter(cfg::ai::num, "ENEMIES: ", sf::Vector2f(20.0f, 2.0f), font) {
 #ifdef DEBUG
     res_path = "res/";
 #else
@@ -28,7 +28,7 @@ Game::Game(sf::RenderWindow& window)
     if (!font.loadFromFile(res_path + "font.ttf"))
         throw std::runtime_error("Failed to load font.");
 
-    cells.push_back(Cell(sf::Vector2f(0.f, 0.f), 0));
+    cells.push_back(Cell(sf::Vector2f(0.0f, 0.0f), 0));
     for (int i = 0; i < cfg::ai::num; i++)
         cells.push_back(Cell(sf::Vector2f(50.f, 50.f), 1));
 
@@ -51,8 +51,8 @@ void Game::run(void) {
     Timer            spawn_timer(cfg::food::spawn_cooldown);
 
 #ifdef DEBUG
-    float fps_avg = 1.f;
-    Timer fps_timer(0.5);
+    float fps_avg = 1.0f;
+    Timer fps_timer(0.5f);
 #endif // DEBUG
 
     while (window.isOpen()) {
@@ -75,7 +75,7 @@ void Game::run(void) {
         drawer.update();
 
 #ifdef DEBUG
-        fps_avg = 0.9 * fps_avg + 0.1 * (1 / dt);
+        fps_avg = 0.9f * fps_avg + 0.1f * (1.0f / dt);
         if (fps_timer.elapsed()) 
             std::cout << fps_avg << '\n';
 #endif // DEBUG

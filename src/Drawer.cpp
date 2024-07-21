@@ -23,8 +23,8 @@ Drawer::Drawer(sf::RenderWindow& window, sf::View& camera, DrawableContainer& dr
 
 void Drawer::update(void) {
     camera_rect = sf::FloatRect(
-        camera.getCenter().x - camera.getSize().x / 2.f,
-        camera.getCenter().y - camera.getSize().y / 2.f,
+        camera.getCenter().x - camera.getSize().x / 2.0f,
+        camera.getCenter().y - camera.getSize().y / 2.0f,
         camera.getSize().x,
         camera.getSize().y
     );
