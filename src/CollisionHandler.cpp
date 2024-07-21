@@ -25,7 +25,7 @@ void CollisionHandler::update(void) {
 
         for (auto f = food.begin(); f != food.end(); f++) {
             if (f->collision(*c)) {
-                c->grow(f->getRadius());
+                c->grow(f->getRadius() / 10.0f);
                 f = food.erase(f);
                 f--;
             }
