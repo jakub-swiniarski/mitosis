@@ -7,12 +7,13 @@ namespace sf {
 }
 
 class InputProcessor {
-    Cell *player;
-    sf::WindowBase *window;
+    Cell*           player;
+    sf::WindowBase& window;
 
 public:
-    InputProcessor(Cell *p, sf::WindowBase *w);
+    InputProcessor(Cell* player, sf::WindowBase& window);
+
     void update(void) const;
 };
 
-#endif /* INPUTPROCESSOR_HPP */
+#endif // INPUTPROCESSOR_HPP

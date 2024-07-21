@@ -13,18 +13,24 @@ namespace sf {
 }
 
 class Game {
-    sf::RenderWindow *window;
-    sf::View camera;
+    // ----- CORE ----- //
+    sf::RenderWindow& window;
+    sf::View          camera;
+
+    // ----- DRAWABLES ----- //
     std::list<Cell> cells;
     std::list<Food> food;
-    Cell *player;
-    std::string filepath;
-    sf::Font font;
-    Counter counter;
+    Counter         counter;
+    Cell*           player;
+
+    // ----- RESOURCES ----- //
+    std::string res_path;
+    sf::Font    font;
 
 public:
-    Game(sf::RenderWindow *w);
+    Game(sf::RenderWindow& window);
+
     void run(void);
 };
 
-#endif /* GAME_HPP */
+#endif // GAME_HPP

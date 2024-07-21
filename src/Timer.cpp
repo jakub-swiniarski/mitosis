@@ -1,6 +1,7 @@
 #include "Timer.hpp"
 
-Timer::Timer(float c) : cooldown(c) {}
+Timer::Timer(float cooldown)
+    : cooldown(cooldown) {}
 
 bool Timer::elapsed(void) {
     if(getElapsedTime().asSeconds() >= cooldown) {

@@ -5,7 +5,7 @@
 
 #include "config.hpp"
 
-Food::Food(sf::Vector2f player_pos) {
+Food::Food(sf::Vector2f player_position) {
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> rand_rotation(0, 360);
@@ -15,5 +15,5 @@ Food::Food(sf::Vector2f player_pos) {
 
     setRadius(cfg::food::radius);
     setFillColor(sf::Color(rand_rgb(rng), rand_rgb(rng), rand_rgb(rng)));
-    setPosition(player_pos.x + distance * cos(rotation), player_pos.y + distance * sin(rotation)); 
+    setPosition(player_position.x + distance * cos(rotation), player_position.y + distance * sin(rotation)); 
 }

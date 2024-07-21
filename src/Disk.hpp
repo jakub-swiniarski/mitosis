@@ -6,9 +6,9 @@
 
 class Disk : public sf::CircleShape {
 public:
-    bool collision(const Disk &d) const;
-    float get_distance(sf::Vector2f v) const;
+    bool         collision(const Disk& disk) const;
+    float        get_distance(sf::Vector2f point) const;
     sf::Vector2f get_middle(void) const;
 };
 
-#endif /* DISK_HPP */
+#endif // DISK_HPP

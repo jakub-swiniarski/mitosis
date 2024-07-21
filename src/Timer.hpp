@@ -7,8 +7,9 @@ class Timer : private sf::Clock {
     float cooldown;
 
 public:
-    Timer(float c);
+    Timer(float cooldown);
+
     bool elapsed(void);
 };
 
-#endif /* TIMER_HPP */
+#endif // TIMER_HPP
