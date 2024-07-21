@@ -4,14 +4,12 @@ Your goal is to grow your cell by consuming smaller cells while avoiding being e
 ## How to install?
 ### Prerequisites
 - g++
-- sfml
-- git
 - make
+- sfml
 ### Compile & install
+Run this with root privileges:
 ```shell
-git clone https://github.com/jakub-swiniarski/mitosis.git
-cd mitosis
-sudo make install 
+make install 
 ```
 ### How to run?
 Run this command: 
@@ -19,14 +17,14 @@ Run this command:
 mitosis
 ```
 ### How to uninstall?
-Go inside the cloned repository and run: <br/>
+Go inside the cloned repository and run this with root privileges: <br/>
 ```shell
-sudo make clean uninstall
+make uninstall
 ```
 
 ## Customization
-Edit src/config.hpp and run:
+Edit src/config.hpp and run this with root privileges:
 ```shell
-sudo make install 
+make install 
 ```
 
